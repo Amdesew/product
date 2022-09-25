@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<nav class="navbar bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="color: lightseagreen; font-family: arial; font-size: 25px;">
+      Amdesew Shop</a>
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+    <div class="row" style="background-color: gray; padding-left: 35px;">
+        {% for product in products %}
+        <div class="col">
+            <div class="card" style="width: 18rem; box-shadow: 5px 5px 10px white;">
+                <img src="{{ product.image_url }}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  <p class="card-text">{{ product.price }} $</p>
+                  <a href="#" class="btn btn-primary">Add To Cart</a>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
